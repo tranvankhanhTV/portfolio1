@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trần Văn Khánh - Backend &amp; Full-Stack Developer | Portfolio</title>
+
+    <!-- ===== Primary SEO ===== -->
+    <meta name="description" content="Trần Văn Khánh is a Backend and Full-Stack Web Developer in Ho Chi Minh City, with a six-month EdTech internship and a completed research-management graduation project.">
+    <meta name="keywords" content="Trần Văn Khánh, Backend Developer, Full-Stack Developer, NestJS, FastAPI, PostgreSQL, MongoDB, Next.js, React, Docker, Fresher, Junior, Ho Chi Minh City">
+    <meta name="author" content="Trần Văn Khánh">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#05070f">
+    <link rel="canonical" href="https://khanh4k.github.io/portfolio/">
+
+    <!-- ===== Open Graph (Facebook / Zalo / LinkedIn) ===== -->
+    <!-- NOTE: replace relative URLs with absolute URLs after deploying (required for og:image) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Trần Văn Khánh - Portfolio">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Trần Văn Khánh - Backend &amp; Full-Stack Developer">
+    <meta property="og:description" content="Backend and Full-Stack Web Developer with EdTech internship experience and a completed research-management graduation project.">
+    <meta property="og:url" content="https://khanh4k.github.io/portfolio/">
+    <meta property="og:image" content="https://khanh4k.github.io/portfolio/khanh.jpg">
+    <meta property="og:image:alt" content="Trần Văn Khánh profile photo - Full-Stack Web Developer">
+
+    <!-- ===== Twitter / X Card ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trần Văn Khánh - Backend &amp; Full-Stack Developer">
+    <meta name="twitter:description" content="Backend and Full-Stack Web Developer with EdTech internship experience and a completed research-management graduation project.">
+    <meta name="twitter:image" content="https://khanh4k.github.io/portfolio/khanh.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js for 3D Graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- ===== Structured Data: Person (Google Knowledge Panel) ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Trần Văn Khánh",
+        "givenName": "Khánh",
+        "additionalName": "Văn",
+        "familyName": "Trần",
+        "jobTitle": "Backend / Full-Stack Web Developer",
+        "description": "Backend and Full-Stack Web Developer with a six-month EdTech internship and a completed graduation project.",
+        "email": "tranvankhanh2k4@gmail.com",
+        "telephone": "+84705364798",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "District 4",
+            "addressRegion": "Ho Chi Minh City",
+            "addressCountry": "VN"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Nguyễn Tất Thành University"
+        },
+        "knowsAbout": [
+            "HTML5", "CSS3", "JavaScript ES6+", "React.js", "Next.js", "TailwindCSS",
+            "Node.js", "NestJS", "Express.js", "Python", "FastAPI",
+            "PostgreSQL", "MongoDB", "MySQL", "Docker", "REST API"
+        ],
+        "knowsLanguage": [
+            { "@type": "Language", "name": "Vietnamese" },
+            { "@type": "Language", "name": "English" }
+        ],
+        "sameAs": [
+            "https://github.com/tranvankhanhTV"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-text">Loading the Universe...</div>
+        </div>
+    </div>
+
+    <!-- Starfield Canvas Background -->
+    <canvas id="starfield"></canvas>
+    
+    <!-- 3D Scene Container -->
+    <div id="three-container"></div>
+    
+    <!-- Cosmic Nebula Overlay -->
+    <div class="nebula-overlay"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Custom Cursor Trail -->
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container sidebar-inner">
+            <div class="sidebar-profile">
+                <a href="#home" class="sidebar-avatar" aria-label="Go to home">
+                    <img src="anh 4 ....png" alt="Trần Văn Khánh">
+                </a>
+                <a href="#home" class="sidebar-name">Trần Văn Khánh</a>
+                <p class="sidebar-role">Backend / Full-Stack Developer</p>
+                <div class="sidebar-socials" aria-label="Social and contact links">
+                    <a href="https://github.com/tranvankhanhTV" aria-label="GitHub" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:tranvankhanh2k4@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+84705364798" aria-label="Call">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                <span class="sidebar-availability"><span class="status-dot" aria-hidden="true"></span> Open to work</span>
+            </div>
+            <span class="sidebar-label">Navigate portfolio</span>
+            <ul class="nav-menu" id="navMenu" aria-label="Portfolio chapters">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about" class="nav-link"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="a011.pdf" class="nav-link" download="a011.pdf"><i class="fas fa-file-arrow-down"></i> Download CV</a></li>
+                <li><a href="#services" class="nav-link"><i class="fas fa-layer-group"></i> Services</a></li>
+                <li><a href="#process" class="nav-link"><i class="fas fa-diagram-project"></i> Process</a></li>
+                <li><a href="#skills" class="nav-link"><i class="fas fa-graduation-cap"></i> Skills</a></li>
+                <li><a href="#experience" class="nav-link"><i class="fas fa-rocket"></i> Experience</a></li>
+                <li><a href="#education" class="nav-link"><i class="fas fa-university"></i> Education</a></li>
+                <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#faq" class="nav-link"><i class="fas fa-circle-question"></i> FAQ</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <a href="#contact" class="sidebar-contact">
+                <i class="fas fa-paper-plane"></i> Contact me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content reveal-stagger">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i> Backend / Full-Stack Developer
+                        <span class="badge-status"><span class="status-dot" aria-hidden="true"></span> Open to work</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Trần Văn <span class="gradient-text">Khánh</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        Building <span class="typing-text"></span>
+                    </h2>
+                    <p class="hero-description hero-description-sub">
+                        Backend / Full-Stack Web Developer with <strong>six months of EdTech internship experience</strong>
+                        and a completed research-management graduation project. Focused on reliable APIs, thoughtful
+                        data design and useful products.
+                    </p>
+                    <ul class="hero-chips" aria-label="Core technologies">
+                        <li class="hero-chip"><i class="fab fa-html5"></i> HTML5</li>
+                        <li class="hero-chip"><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li class="hero-chip"><i class="fab fa-js-square"></i> JavaScript</li>
+                        <li class="hero-chip"><i class="fab fa-react"></i> React / Next.js</li>
+                        <li class="hero-chip"><i class="fab fa-node-js"></i> Node.js / NestJS</li>
+                        <li class="hero-chip"><i class="fas fa-bolt"></i> Python / FastAPI</li>
+                        <li class="hero-chip"><i class="fas fa-database"></i> PostgreSQL</li>
+                        <li class="hero-chip"><i class="fab fa-docker"></i> Docker</li>
+                    </ul>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-glow magnetic-btn">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                        <a href="a011.pdf" class="btn btn-outline btn-cv magnetic-btn" download="a011.pdf">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                        <a href="#projects" class="btn btn-outline magnetic-btn">
+                            <i class="fas fa-telescope"></i> Explore Projects
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <h3>6 mo</h3>
+                                <p>EdTech Internship</p>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-project-diagram"></i>
+                            <div>
+                                <h3>81</h3>
+                                <p>Graduation Project Tables</p>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h3>4</h3>
+                                <p>Dashboard Roles</p>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>3</h3>
+                                <p>Capstone Team Members</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-ring"></div>
+                        <div class="profile-ring"></div>
+                        <div class="profile-ring"></div>
+                        <div class="profile-avatar">
+                            <img src="anh 4 ....png" alt="Trần Văn Khánh - Backend and Full-Stack Web Developer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" id="scrollIndicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="01 · About">
+                    <i class="fas fa-user-astronaut"></i> About Me
+                </h2>
+                <p class="section-lead">
+                    From interface to database — I build web products that are
+                    <strong>complete, maintainable and pleasant to use</strong>. Here is a quick snapshot of who I am.
+                </p>
+            </div>
+            <div class="about-content">
+              <div class="about-layout">
+                <div class="about-card glass-card reveal-left about-main">
+                    <div class="about-icon">
+                        <i class="fas fa-address-card"></i>
+                    </div>
+                    
+                    <div class="about-text">
+                        <h3>Professional Profile</h3>
+                        <p>
+                            Hi! I'm <strong class="highlight">Trần Văn Khánh</strong>, a Backend / Full-Stack Web
+                            Developer and Information Technology student at Nguyễn Tất Thành University, currently
+                            awaiting graduation review. I completed a six-month internship at ETECHS and served as
+                            Backend Developer for a three-person graduation project.
+                        </p>
+                        <p>
+                            <strong class="highlight">Career objective:</strong> Seeking a Backend / Full-Stack
+                            Developer (Fresher/Junior) role to contribute to real products while continuing to
+                            strengthen API design, data modeling, system performance and application security.
+                        </p>
+
+                        <!-- Quick facts -->
+                        <ul class="quick-facts">
+                            <li><i class="fas fa-user"></i><span><strong>Name:</strong> Trần Văn Khánh</span></li>
+                            <li><i class="fas fa-briefcase"></i><span><strong>Role:</strong> Backend / Full-Stack Developer (Fresher / Junior)</span></li>
+                            <li><i class="fas fa-map-marker-alt"></i><span><strong>Location:</strong> District 4, Ho Chi Minh City</span></li>
+                            <li><i class="fas fa-graduation-cap"></i><span><strong>Education:</strong> Nguyễn Tất Thành University (2022 – 2026; awaiting graduation review)</span></li>
+                            <li><i class="fas fa-briefcase"></i><span><strong>Experience:</strong> 6-month Web Development internship at ETECHS</span></li>
+                            <li><i class="fas fa-circle-check"></i><span><strong>Seeking:</strong> Fresher / Junior Backend or Full-Stack roles</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact snapshot -->
+                <aside class="about-side">
+                    <h3 class="about-subheading">At a glance</h3>
+                <div class="info-grid reveal-stagger">
+                    <div class="info-card glass-card tilt-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <p>+84 705 364 798</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card tilt-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>tranvankhanh2k4@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card tilt-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <p>District 4, Ho Chi Minh City, Vietnam</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card tilt-card">
+                        <div class="info-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>GitHub</h4>
+                            <p>github.com/tranvankhanhTV</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work strengths -->
+                    <h3 class="about-subheading">How I work</h3>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Logical Thinking</h4>
+                            <p>Complex problem-solving with algorithms</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Teamwork</h4>
+                            <p>Task planning, collaboration and code review</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Self-Learning</h4>
+                            <p>Proactive learning and adapting to new tools</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Algorithms</h4>
+                            <p>LeetCode/HackerRank practice</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>AI-Assisted Workflow</h4>
+                            <p>Use AI to support coding, debugging and productivity</p>
+                        </div>
+                    </div>
+                </div>
+                </aside>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="02 · Services">
+                    <i class="fas fa-layer-group"></i> What I Offer
+                </h2>
+                <p class="section-lead">
+                    I build websites and web applications
+                    <strong>end-to-end, from Frontend to Backend</strong> — a fit for academic projects,
+                    small business sites, landing pages and MVPs.
+                </p>
+            </div>
+            <div class="services-grid reveal-stagger">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fas fa-window-restore"></i></div>
+                    <h3>Frontend Development</h3>
+                    <p>
+                        Turn Figma/design files into semantic HTML/CSS/JavaScript,
+                        responsive on every screen size and optimized for fast page loads.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Responsive UI (mobile-first)</li>
+                        <li><i class="fas fa-check"></i> Semantic HTML5 + SEO-ready</li>
+                        <li><i class="fas fa-check"></i> CSS3, Flexbox, Grid, Animation</li>
+                        <li><i class="fas fa-check"></i> JavaScript ES6+ &amp; DOM</li>
+                        <li><i class="fas fa-check"></i> React.js component-based</li>
+                        <li><i class="fas fa-check"></i> Performance &amp; accessibility tuning</li>
+                    </ul>
+                    <div class="service-foot">
+                        <i class="fas fa-code"></i> HTML5 · CSS3 · JavaScript · React.js
+                    </div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend &amp; REST API</h3>
+                    <p>
+                        Build RESTful APIs, business logic and user authentication with
+                        Node.js/NestJS or Python/FastAPI, with a focus on clear API contracts and reliable data flows.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> RESTful API design</li>
+                        <li><i class="fas fa-check"></i> API integration and clear endpoint contracts</li>
+                        <li><i class="fas fa-check"></i> JWT, RBAC and access control</li>
+                        <li><i class="fas fa-check"></i> Validation, debugging and error handling</li>
+                    </ul>
+                    <div class="service-foot">
+                        <i class="fas fa-plug"></i> Node.js · NestJS · Python · FastAPI
+                    </div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Database Design</h3>
+                    <p>
+                        Requirement analysis, schema design and optimized queries for
+                        multi-table, multi-relationship management systems.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Normalisation &amp; table relations</li>
+                        <li><i class="fas fa-check"></i> JOIN queries / index tuning</li>
+                        <li><i class="fas fa-check"></i> Migration &amp; seed data</li>
+                        <li><i class="fas fa-check"></i> Backup &amp; recovery</li>
+                    </ul>
+                    <div class="service-foot">
+                        <i class="fas fa-table"></i> MySQL · Schema design · Query tuning
+                    </div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                    <h3>Deployment, Optimization &amp; Maintenance</h3>
+                    <p>
+                        Ship the product to hosting/VPS, configure domains, tune speed, and
+                        support fixes and feature extensions after handover.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Deploy hosting / VPS (cPanel, Nginx)</li>
+                        <li><i class="fas fa-check"></i> Domain, SSL, DNS configuration</li>
+                        <li><i class="fas fa-check"></i> Speed &amp; image optimization</li>
+                        <li><i class="fas fa-check"></i> Source control with Git/GitHub</li>
+                        <li><i class="fas fa-check"></i> Bug fixing &amp; feature additions</li>
+                        <li><i class="fas fa-check"></i> Handover with usage documentation</li>
+                    </ul>
+                    <div class="service-foot">
+                        <i class="fas fa-shield-halved"></i> Deploy · Git/GitHub · Optimize &amp; maintain
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Development Process Section -->
+    <section id="process" class="process section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="03 · Process">
+                    <i class="fas fa-diagram-project"></i> From Idea to Launch
+                </h2>
+                <p class="section-lead">
+                    A clear, collaborative workflow keeps each project focused —
+                    <strong>from understanding the problem to supporting the finished product</strong>.
+                </p>
+            </div>
+            <ol class="process-grid reveal-stagger">
+                <li class="process-step">
+                    <span class="process-number">01</span>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Discover</h3>
+                    <p>Understand the goals, audience, requirements and constraints before choosing a solution.</p>
+                    <span class="process-tag">Listen &amp; align</span>
+                </li>
+                <li class="process-step">
+                    <span class="process-number">02</span>
+                    <div class="process-icon"><i class="fas fa-diagram-project"></i></div>
+                    <h3>Plan</h3>
+                    <p>Map the user flow, data model and technical milestones into a practical build plan.</p>
+                    <span class="process-tag">Structure the work</span>
+                </li>
+                <li class="process-step">
+                    <span class="process-number">03</span>
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <h3>Build</h3>
+                    <p>Create responsive interfaces and reliable APIs in small, reviewable increments.</p>
+                    <span class="process-tag">Ship in iterations</span>
+                </li>
+                <li class="process-step">
+                    <span class="process-number">04</span>
+                    <div class="process-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Validate</h3>
+                    <p>Test key flows across screen sizes, fix edge cases and polish the experience.</p>
+                    <span class="process-tag">Test &amp; refine</span>
+                </li>
+                <li class="process-step">
+                    <span class="process-number">05</span>
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Launch</h3>
+                    <p>Deploy, document the handover and make the next improvements easy to plan.</p>
+                    <span class="process-tag">Deliver with care</span>
+                </li>
+            </ol>
+            <div class="process-note">
+                <i class="fas fa-code-branch" aria-hidden="true"></i>
+                <p><strong>Built in the open:</strong> Git-based progress makes changes easier to review and discuss.</p>
+                <a href="#contact" class="process-link">Have a project in mind? <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="04 · Skills">
+                    <i class="fas fa-graduation-cap"></i> Technical Skills
+                </h2>
+                <p class="section-lead">
+                    Technologies and tools used during my ETECHS internship and graduation project,
+                    with foundational knowledge in related frameworks.
+                </p>
+            </div>
+            <div class="skills-grid reveal-stagger">
+                <div class="skill-card glass-card tilt-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="skill-glow"></div>
+                    <h3>Frontend &amp; UI</h3>
+                    <p>Building responsive interfaces and connecting them to backend services</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> HTML5, CSS3, Flexbox and Grid</li>
+                        <li><i class="fas fa-check"></i> JavaScript ES6+ and responsive design</li>
+                        <li><i class="fas fa-check"></i> React 18 and Next.js 14</li>
+                        <li><i class="fas fa-check"></i> TailwindCSS</li>
+                    </ul>
+                </div>
+                <div class="skill-card glass-card tilt-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="skill-glow"></div>
+                    <h3>Backend &amp; APIs</h3>
+                    <p>Backend development, REST API integration and application security</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Node.js, Express.js and NestJS</li>
+                        <li><i class="fas fa-check"></i> Python and FastAPI</li>
+                        <li><i class="fas fa-check"></i> Flask / Django (basic)</li>
+                        <li><i class="fas fa-check"></i> PHP / Laravel (basic)</li>
+                        <li><i class="fas fa-check"></i> JWT, bcrypt, TOTP 2FA and RBAC</li>
+                    </ul>
+                </div>
+                <div class="skill-card glass-card tilt-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-glow"></div>
+                    <h3>Databases &amp; Data Access</h3>
+                    <p>Relational and document databases with schema design and ORM workflows</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> PostgreSQL and MySQL</li>
+                        <li><i class="fas fa-check"></i> MongoDB</li>
+                        <li><i class="fas fa-check"></i> Schema design and query optimization</li>
+                        <li><i class="fas fa-check"></i> Prisma and SQLAlchemy</li>
+                    </ul>
+                </div>
+                <div class="skill-card glass-card tilt-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-boxes-stacked"></i>
+                    </div>
+                    <div class="skill-glow"></div>
+                    <h3>Tools &amp; Delivery</h3>
+                    <p>Version control, containerization and cloud deployment workflows</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Git and GitHub</li>
+                        <li><i class="fas fa-check"></i> Docker</li>
+                        <li><i class="fas fa-check"></i> Vercel and Render</li>
+                        <li><i class="fas fa-check"></i> Code review and team collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="05 · Experience">
+                    <i class="fas fa-rocket"></i> Work Experience
+                </h2>
+                <p class="section-lead">
+                    Six months building and maintaining features in a real
+                    <strong>education technology team</strong>.
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="far fa-calendar-alt"></i> 09 Mar 2026 – 09 Sep 2026 · 6 months
+                        </div>
+                        <div class="timeline-badge">
+                            <i class="fas fa-briefcase"></i> Internship
+                        </div>
+                        <h3>Web Development Intern</h3>
+                        <h4><i class="fas fa-building"></i> ETECHS Education Technology Solutions JSC</h4>
+                        <p class="timeline-location">361/30A Nguyễn Kim Cương, Phú Hòa Đông, Ho Chi Minh City</p>
+                        <ul>
+                            <li>Developed and maintained EdTech product features with Node.js, NestJS, PostgreSQL, MongoDB, HTML, CSS and JavaScript.</li>
+                            <li>Built and integrated RESTful APIs between frontend and backend modules.</li>
+                            <li>Designed and optimized data structures and queries across PostgreSQL and MongoDB.</li>
+                            <li>Fixed defects and improved responsive layouts and user experience.</li>
+                            <li>Used Git/GitHub to manage changes and collaborate within the team workflow.</li>
+                        </ul>
+                        <a class="timeline-company-link" href="https://etechs.vn/" target="_blank" rel="noopener">
+                            Visit ETECHS <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Education Section -->
+    <section id="education" class="education section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="06 · Education">
+                    <i class="fas fa-university"></i> Education &amp; Project Supervisors
+                </h2>
+                <p class="section-lead">
+                    Information Technology at Nguyễn Tất Thành University, with a web development focus
+                    and a completed graduation project.
+                </p>
+            </div>
+            <div class="education-grid reveal-stagger">
+                <div class="education-card glass-card tilt-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Nguyễn Tất Thành University</h3>
+                        <h4>Information Technology – Full-Stack Web Orientation</h4>
+                        <p class="education-year">2022 – 2026 · Awaiting graduation review</p>
+                        <p>
+                            Information Technology major with a Full-Stack Web Development orientation.
+                            Relevant foundations include Data Structures &amp; Algorithms and Discrete Mathematics.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="education-card glass-card tilt-card">
+                    <div class="education-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Project Supervisors</h3>
+                        <h4>ThS. Lương Trần Hy Hiến</h4>
+                        <p class="education-year">Graduation Project Supervisor</p>
+                        <p>
+                            Faculty guidance for the graduation project.
+                        </p>
+                        <h4>Trần Sơn Hải</h4>
+                        <p class="education-year">Lecturer / Project Supervisor</p>
+                        <p>Email: <a href="mailto:tshai@ntt.edu.vn" style="color: var(--nebula-cyan);">tshai@ntt.edu.vn</a></p>
+                    </div>
+                </div>
+
+                <!-- Coursework & certificates panel -->
+                <div class="coursework">
+                    <h3><i class="fas fa-book-open"></i> Relevant Coursework &amp; Practice</h3>
+                    <p>
+                        Academic foundations and ongoing practice that support my software development work.
+                    </p>
+                    <ul class="coursework-list">
+                        <li><i class="fas fa-check"></i> Data Structures &amp; Algorithms</li>
+                        <li><i class="fas fa-check"></i> Discrete Mathematics</li>
+                        <li><i class="fas fa-check"></i> Web Programming: Frontend &amp; Backend</li>
+                        <li><i class="fas fa-check"></i> Database design and ORM workflows</li>
+                        <li><i class="fas fa-check"></i> RESTful API development</li>
+                        <li><i class="fas fa-check"></i> LeetCode / HackerRank algorithm practice</li>
+                        <li><i class="fas fa-check"></i> Self-directed learning and AI-assisted development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="07 · Projects">
+                    <i class="fas fa-project-diagram"></i> Featured Projects
+                </h2>
+                <p class="section-lead">
+                    A graduation capstone, a real-world EdTech internship project and selected web applications —
+                    highlighting <strong>backend ownership, API development and full-stack collaboration</strong>.
+                </p>
+            </div>
+            <div class="project-filters" role="group" aria-label="Filter projects">
+                <button class="project-filter is-active" type="button" data-filter="all" aria-pressed="true">All projects <span></span></button>
+                <button class="project-filter" type="button" data-filter="fullstack" aria-pressed="false">Full-stack <span></span></button>
+                <button class="project-filter" type="button" data-filter="backend" aria-pressed="false">Backend <span></span></button>
+                <button class="project-filter" type="button" data-filter="frontend" aria-pressed="false">Frontend <span></span></button>
+            </div>
+            <p class="project-filter-status" id="projectFilterStatus" aria-live="polite">Showing 5 projects</p>
+            <div class="projects-grid reveal-stagger" id="projectGrid">
+                <article class="project-card glass-card tilt-card is-featured" data-category="backend">
+                    <div class="project-overview">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Faculty Scientific Research Activities Management System</h3>
+                        </div>
+                        <p class="project-description">
+                            Completed a university capstone project for managing faculty research submissions,
+                            reviews, approvals, workload-hour conversion and reporting. Built as a
+                            <strong>three-person team</strong>; my role focused on backend development.
+                        </p>
+                        <dl class="project-meta">
+                            <div><dt>Role</dt><dd>Backend Developer</dd></div>
+                            <div><dt>Completed</dt><dd>September 2026</dd></div>
+                            <div><dt>Team</dt><dd>3 members</dd></div>
+                        </dl>
+                    </div>
+                    <div class="project-details">
+                        <ul class="project-highlights">
+                            <li><i class="fas fa-check"></i> Five-stage submission and approval workflow with three-step automated research-hour conversion.</li>
+                            <li><i class="fas fa-check"></i> PostgreSQL 15 schema with 81 tables, plus Excel reports and dashboards for four roles.</li>
+                            <li><i class="fas fa-check"></i> Backend security: JWT, bcrypt, TOTP 2FA, four-role RBAC, access checks and audit logs.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Pydantic</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL 15</span>
+                            <span class="tech-tag">SQLAlchemy</span>
+                            <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag">Next.js 14</span>
+                            <span class="tech-tag">React 18</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+                            <span class="tech-tag"><i class="fas fa-cloud"></i> Vercel · Render</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://spncfe1.vercel.app/" class="link-btn magnetic-btn" target="_blank" rel="noopener">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Open Live System
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card tilt-card" data-category="fullstack">
+                    <div class="project-overview">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <h3>Employee Operations System (EOS)</h3>
+                        </div>
+                        <p class="project-description">
+                            EdTech work-assignment platform developed during my six-month internship. Supports
+                            <strong>assigning and tracking staff work</strong> with role-based access.
+                        </p>
+                        <dl class="project-meta">
+                            <div><dt>Role</dt><dd>Web Development Intern</dd></div>
+                            <div><dt>Timeline</dt><dd>6-month internship</dd></div>
+                            <div><dt>Focus</dt><dd>UI, API &amp; data</dd></div>
+                        </dl>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML / CSS</span>
+                            <span class="tech-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                            <span class="tech-tag"><i class="fas fa-leaf"></i> MongoDB</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://eos.etechs.vn/login" class="link-btn magnetic-btn" target="_blank" rel="noopener">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Open EOS
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card tilt-card" data-category="fullstack">
+                    <div class="project-overview">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Online Examination Website</h3>
+                        </div>
+                        <p class="project-description">
+                            One-week full-stack project for online exams, with voice and hand-gesture controls.
+                            Contributed to the <strong>user interface and REST API</strong>.
+                        </p>
+                        <dl class="project-meta">
+                            <div><dt>Role</dt><dd>Frontend &amp; API</dd></div>
+                            <div><dt>Duration</dt><dd>1 week</dd></div>
+                            <div><dt>Type</dt><dd>Personal project</dd></div>
+                        </dl>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="tech-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                            <span class="tech-tag"><i class="fas fa-microphone"></i> Voice &amp; gesture input</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card tilt-card" data-category="fullstack">
+                    <div class="project-overview">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>Education Management System</h3>
+                        </div>
+                        <p class="project-description">
+                            Two-to-three-week web application for managing students, courses and classes, with
+                            <strong>live chat and role-based permissions</strong>.
+                        </p>
+                        <dl class="project-meta">
+                            <div><dt>Role</dt><dd>Full-Stack Developer</dd></div>
+                            <div><dt>Duration</dt><dd>2–3 weeks</dd></div>
+                            <div><dt>Type</dt><dd>Personal project</dd></div>
+                        </dl>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="tech-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                            <span class="tech-tag"><i class="fas fa-comments"></i> Live chat</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card tilt-card" data-category="frontend">
+                    <div class="project-overview">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h3>Cosmic Portfolio Website</h3>
+                        </div>
+                        <p class="project-description">
+                            This very page: a one-page portfolio with a cosmic theme, starfield effects,
+                            a Three.js 3D scene, glassmorphism and pure CSS/JavaScript animation —
+                            <strong>no framework</strong>.
+                        </p>
+                        <dl class="project-meta">
+                            <div><dt>Role</dt><dd>Designer &amp; Developer</dd></div>
+                            <div><dt>Timeline</dt><dd>2026</dd></div>
+                            <div><dt>Status</dt><dd class="is-live">Live</dd></div>
+                        </dl>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="tech-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fas fa-cube"></i> Three.js</span>
+                            <span class="tech-tag"><i class="fas fa-mobile-screen"></i> Responsive</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/tranvankhanhTV" class="link-btn magnetic-btn" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> View GitHub Profile
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="08 · FAQ">
+                    <i class="fas fa-circle-question"></i> Frequently Asked Questions
+                </h2>
+                <p class="section-lead">
+                    Questions I often get from recruiters and clients before we start working together.
+                </p>
+            </div>
+            <div class="faq-layout">
+                <aside class="faq-aside">
+                    <div class="faq-aside-card">
+                        <h3>Still have questions?</h3>
+                        <p>
+                            If your question is not on the list, just send a message —
+                            I reply within 24 hours.
+                        </p>
+                        <a href="#contact" class="btn btn-glow magnetic-btn">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                    </div>
+                </aside>
+
+                <div class="faq-list reveal-stagger">
+                    <details class="faq-item">
+                        <summary>What kind of role are you looking for? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                I'm looking for a <strong>Backend / Full-Stack Developer (Fresher/Junior)</strong> role,
+                                either a <strong>full-time role</strong> or an <strong>internship</strong>.
+                                I'm open to on-site, hybrid or remote roles in Ho Chi Minh City.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Which technologies are you strong in? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                <strong>Frontend:</strong> HTML5, CSS3 (Flexbox, Grid, Responsive),
+                                JavaScript ES6+, React.js, Next.js and TailwindCSS.
+                            </p>
+                            <p>
+                                <strong>Backend:</strong> Node.js, Express.js, NestJS and Python/FastAPI;
+                                Flask/Django and PHP/Laravel at a basic level.
+                            </p>
+                            <p>
+                                <strong>Data &amp; delivery:</strong> PostgreSQL, MySQL, MongoDB, Prisma,
+                                SQLAlchemy, Docker, Vercel and Render. Graduation project security includes
+                                JWT, bcrypt, TOTP 2FA, RBAC and audit logging.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you take freelance or academic projects? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                Yes. I take on <strong>small business websites, landing pages, portfolios</strong>
+                                and <strong>course / graduation projects</strong> built as web applications.
+                                Send me your requirements and I'll reply with a clear scope and timeline.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How good is your English? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                I read <strong>technical documentation and English error messages</strong> comfortably —
+                                a skill I use daily when checking docs, Stack Overflow and source code.
+                                My spoken English is still a work in progress.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What is your process for a web project? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                I work in five steps: <strong>requirement analysis → database &amp; wireframe design →
+                                Frontend/Backend development → testing → deployment and handover</strong>.
+                                Throughout the process, the codebase is managed on Git/GitHub so you can track progress.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What is the fastest way to reach you? <i class="fas fa-chevron-down"></i></summary>
+                        <div class="faq-answer">
+                            <p>
+                                The fastest options are <strong>email</strong> or <strong>phone</strong> in the Contact
+                                section below, or simply the message form. I usually reply within <strong>24 hours</strong>.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container reveal">
+            <div class="section-head">
+                <h2 class="section-title" data-eyebrow="09 · Contact">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </h2>
+                <p class="section-lead">
+                    I'm always happy to talk about <strong>job opportunities</strong>, freelance projects
+                    or simply technology. Leave your details and I'll get back within 24 hours.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's connect</h3>
+                    <p>
+                        I'm open to collaborating on new tech projects.
+                        Drop me a line and let's build something extraordinary together.
+                    </p>
+                    
+                    <!-- Google Map -->
+                    <div class="map-container map-reveal">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.563481095086!2d106.68064561476316!3d10.761303892329725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38c7f7e7c7%3A0x4b8c5c2f7c8c7c7c!2sDistrict%204%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="District 4, Ho Chi Minh City" title="District 4, Ho Chi Minh City"></iframe>
+                    </div>
+
+                    <div class="contact-details reveal-stagger">
+                        <div class="contact-item glass-card tilt-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+84705364798">+84 705 364 798</a></p>
+                                <span class="contact-hint">Call or message anytime</span>
+                            </div>
+                        </div>
+                        <div class="contact-item glass-card tilt-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:tranvankhanh2k4@gmail.com">tranvankhanh2k4@gmail.com</a></p>
+                                <span class="contact-hint">Replies within 24 hours</span>
+                            </div>
+                        </div>
+                        <div class="contact-item glass-card tilt-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>District 4, Ho Chi Minh City</p>
+                                <span class="contact-hint">Open to on-site / hybrid / remote</span>
+                            </div>
+                        </div>
+                        <div class="contact-item glass-card tilt-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4>Social</h4>
+                                <div class="social-links">
+                                    <a href="https://github.com/tranvankhanhTV" class="social-icon magnetic-btn" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                                    <a href="mailto:tranvankhanh2k4@gmail.com" class="social-icon magnetic-btn" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+                                    <a href="tel:+84705364798" class="social-icon magnetic-btn" aria-label="Call"><i class="fas fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form glass-card reveal-right" id="contactForm">
+                    <div class="contact-form-heading">
+                        <span><i class="fas fa-paper-plane"></i> Start a conversation</span>
+                        <h3>Tell me about your project</h3>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Your name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Your email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder=" ">
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder=" " rows="5" required></textarea>
+                        <label for="message">Your message</label>
+                    </div>
+                    <button type="submit" class="btn btn-submit magnetic-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-intro">
+                <div class="footer-intro-copy">
+                    <span class="footer-kicker">THE NEXT CHAPTER</span>
+                    <h2>Have an idea worth building?</h2>
+                    <p>Let’s turn a thoughtful brief into a reliable product.</p>
+                </div>
+                <a class="footer-cta" href="#contact">
+                    Start a conversation <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-atom"></i> TRẦN VĂN KHÁNH</div>
+                    <p>
+                        Backend / Full-Stack Developer building useful, reliable web products —
+                        from thoughtful interfaces to dependable APIs and data.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/tranvankhanhTV" class="social-icon magnetic-btn" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="mailto:tranvankhanh2k4@gmail.com" class="social-icon magnetic-btn" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+84705364798" class="social-icon magnetic-btn" aria-label="Call"><i class="fas fa-phone"></i></a>
+                    </div>
+                    <a href="a011.pdf" class="footer-download" download="a011.pdf">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+
+                <nav class="footer-col footer-navigation" aria-label="Footer navigation">
+                    <h4>Explore the portfolio</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#process"><i class="fas fa-chevron-right"></i> Process</a></li>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-contact">
+                    <h4>Let’s connect</h4>
+                    <ul>
+                        <li><a href="mailto:tranvankhanh2k4@gmail.com"><i class="fas fa-envelope"></i> tranvankhanh2k4@gmail.com</a></li>
+                        <li><a href="tel:+84705364798"><i class="fas fa-phone"></i> +84 705 364 798</a></li>
+                        <li><a href="https://github.com/tranvankhanhTV" target="_blank" rel="noopener"><i class="fab fa-github"></i> github.com/tranvankhanhTV</a></li>
+                        <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> District 4, Ho Chi Minh City</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-note">&copy; 2026 Trần Văn Khánh. All rights reserved.</p>
+                <p class="footer-note">Built with <span class="highlight">HTML · CSS · JavaScript</span></p>
+                <a class="footer-wave" href="#home"><i class="fas fa-arrow-up"></i> Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
